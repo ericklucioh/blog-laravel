@@ -9,7 +9,7 @@ post:                       # Objeto principal que representa um artigo/post
                              # public = visível para todos
                              # private = somente admin/autenticado
                              # unlisted = acessível apenas via link direto
-
+  language: string          # Código de idioma (ex: "pt-BR", "en-US") para internacionalização
   category_id: uuid         # Categoria principal do post (relacionamento com tabela de categorias)
   tags: list<string>        # Lista de palavras-chave para busca e organização
 
