@@ -2,16 +2,11 @@ version: '3.8'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: laravel-app
+    build: .
     container_name: laravel-app
-    restart: unless-stopped
-    working_dir: /var/www
+    working_dir: /var/www/blog-laravel
     volumes:
       - ./:/var/www
-
     ports:
       - "8000:8000"
     depends_on:
