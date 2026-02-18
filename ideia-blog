@@ -1,0 +1,28 @@
+post:                       # Objeto principal que representa um artigo/post
+  id: uuid                  # Identificador único global do post (evita duplicação e facilita relacionamento no banco)
+  title: string             # Título exibido para o usuário
+  slug: string              # Versão do título adaptada para URL (ex: "meu-post-incrivel")
+  excerpt: string           # Pequeno resumo usado em listagens, cards e SEO
+  is_draft: boolean          # Indica se o post está em rascunho (não publicado)
+  visibility: enum(public, private, unlisted)
+                             # Controle de acesso:
+                             # public = visível para todos
+                             # private = somente admin/autenticado
+                             # unlisted = acessível apenas via link direto
+
+  category_id: uuid         # Categoria principal do post (relacionamento com tabela de categorias)
+  tags: list<string>        # Lista de palavras-chave para busca e organização
+
+  published_at: datetime    # Data e hora oficial de publicação
+  updated_at: datetime      # Data e hora da última atualização
+  deleted_at: datetime      # Soft delete (marca como deletado sem remover do banco)
+
+  seo:                      # Objeto dedicado para otimização em mecanismos de busca
+    title: string           # Título específico para SEO (pode ser diferente do title principal)
+    description: string     # Meta description exibida no Google
+    image: string           # Imagem usada para Open Graph (preview ao compartilhar)
+    canonical: string       # URL canônica para evitar conteúdo duplicado
+
+  analytics:                # Dados estatísticos do post
+    views: number           # Número total de visualizações
+    reading_time: number    # Tempo estimado de leitura (em minutos)
