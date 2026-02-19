@@ -7,4 +7,4 @@ docker exec -it laravel-app php artisan key:generate
 
 # migrations
 docker exec -it laravel-app php artisan migrate
- ## dai roda
+## dai roda

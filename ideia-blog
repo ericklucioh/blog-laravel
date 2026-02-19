@@ -4,7 +4,6 @@ post:                       # Objeto principal que representa um artigo/post
   slug: string              # Versão do título adaptada para URL (ex: "meu-post-incrivel")
   excerpt: string           # Pequeno resumo usado em listagens, cards e SEO
   is_draft: boolean          # Indica se o post está em rascunho (não publicado)
-  visibility: enum(public, private, unlisted)
                              # Controle de acesso:
                              # public = visível para todos
                              # private = somente admin/autenticado
@@ -23,6 +22,5 @@ post:                       # Objeto principal que representa um artigo/post
     image: string           # Imagem usada para Open Graph (preview ao compartilhar)
     canonical: string       # URL canônica para evitar conteúdo duplicado
 
-  analytics:                # Dados estatísticos do post
-    views: number           # Número total de visualizações
-    reading_time: number    # Tempo estimado de leitura (em minutos)
+  views: number           # Número total de visualizações
+  reading_time: number    # Tempo estimado de leitura (em minutos)
