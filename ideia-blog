@@ -3,11 +3,12 @@ post:                       # Objeto principal que representa um artigo/post
   title: string             # Título exibido para o usuário
   slug: string              # Versão do título adaptada para URL (ex: "meu-post-incrivel")
   excerpt: string           # Pequeno resumo usado em listagens, cards e SEO
-  is_draft: boolean          # Indica se o post está em rascunho (não publicado)
+  content: string           # Conteúdo completo do post, pode ser em Markdown ou HTML
+  status: [public, private, draft]          
                              # Controle de acesso:
                              # public = visível para todos
                              # private = somente admin/autenticado
-                             # unlisted = acessível apenas via link direto
+                             # draft = fazendo ainda, não visível
   language: string          # Código de idioma (ex: "pt-BR", "en-US") para internacionalização
   category_id: uuid         # Categoria principal do post (relacionamento com tabela de categorias)
   tags: list<string>        # Lista de palavras-chave para busca e organização

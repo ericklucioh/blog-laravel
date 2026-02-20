@@ -9,10 +9,11 @@ use App\Casts\SeoCast;
 
 /**
  * Class Post
- *
+ * ideia-blog.yaml na raiz do projeto define a estrutura e os campos esperados para um post.
  * @property string $title           Título principal do post
  * @property string $slug            URL amigável única
  * @property string|null $excerpt    Resumo curto do post
+ * @property string $content           Conteúdo completo do post
  * @property bool $is_draft          Define se o post é rascunho
  * @property string $language        Idioma do conteúdo (ex: pt-BR)
  * @property string $category_id     UUID da categoria relacionada
@@ -32,6 +33,7 @@ class Post extends Model
         'title',
         'slug',
         'excerpt',
+        'content',
         'is_draft',
         'language',
         'category_id',
@@ -45,12 +47,12 @@ class Post extends Model
         'title' => 'string',
         'slug' => 'string',
         'excerpt' => 'string',
+        'content' => 'string',
         'is_draft' => 'boolean',
         'language' => 'string',
         'category_id' => 'string',
         'published_at' => 'datetime',
         'updated_at' => 'datetime',
-        'deleted_at' => 'datetime',
         'tags' => 'array',
         'seo' => SeoCast::class,
         'views' => 'integer',
