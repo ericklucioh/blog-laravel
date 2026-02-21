@@ -1,27 +1,29 @@
-post:                       # Objeto principal que representa um artigo/post
-  id: uuid                  # Identificador único global do post (evita duplicação e facilita relacionamento no banco)
-  title: string             # Título exibido para o usuário
-  slug: string              # Versão do título adaptada para URL (ex: "meu-post-incrivel")
-  excerpt: string           # Pequeno resumo usado em listagens, cards e SEO
-  content: string           # Conteúdo completo do post, pode ser em Markdown ou HTML
-  status: [public, private, draft]          
-                             # Controle de acesso:
-                             # public = visível para todos
-                             # private = somente admin/autenticado
-                             # draft = fazendo ainda, não visível
-  language: string          # Código de idioma (ex: "pt-BR", "en-US") para internacionalização
-  category_id: uuid         # Categoria principal do post (relacionamento com tabela de categorias)
+Post:
+  id: uuid
+  status: [draft, public, private]
+  category_id: uuid
+  views: number
+  reading_time: number
   tags: list<string>        # Lista de palavras-chave para busca e organização
+  published_at: datetime
+  updated_at: datetime
+  deleted_at: datetime
 
-  published_at: datetime    # Data e hora oficial de publicação
-  updated_at: datetime      # Data e hora da última atualização
-  deleted_at: datetime      # Soft delete (marca como deletado sem remover do banco)
+PostTranslation:
+  id: uuid
+  post_id: uuid                 # referência ao Post
+  language: string              # ex: "pt-BR", "en-US"
 
-  seo:                      # Objeto dedicado para otimização em mecanismos de busca
-    title: string           # Título específico para SEO (pode ser diferente do title principal)
-    description: string     # Meta description exibida no Google
-    image: string           # Imagem usada para Open Graph (preview ao compartilhar)
-    canonical: string       # URL canônica para evitar conteúdo duplicado
+  title: string
+  slug: string                  # unique por idioma
+  excerpt: string
+  content: string
 
-  views: number           # Número total de visualizações
-  reading_time: number    # Tempo estimado de leitura (em minutos)
+  seo:
+    title: string
+    description: string
+    image: string
+    canonical: string
+
+  created_at: datetime
+  updated_at: datetime
